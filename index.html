@@ -10,117 +10,118 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
-    --bg:#0a0e1a; --bg2:#0d1324; --card:#121a30; --card2:#0f1730;
-    --border:rgba(255,255,255,.09); --border2:rgba(34,211,238,.35);
-    --text:#e8eefc; --muted:#93a1bd;
-    --cyan:#22d3ee; --blue:#4f7cff; --purple:#a855f7; --green:#34d399;
-    --grad:linear-gradient(135deg,#22d3ee 0%,#4f7cff 50%,#a855f7 100%);
+    --blue:#0f6cbd; --blue2:#2b88d8; --blue-dark:#0a5aa8;
+    --bg:#eaf1fb; --card:#ffffff; --border:#d6e3f5;
+    --text:#16233d; --muted:#5a6b88;
+    --grad:linear-gradient(135deg,#0f6cbd 0%,#2b88d8 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:var(--bg);
-    background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:24px 24px}
+  body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:var(--bg)}
   h1,h2,h3,.logo,.typed{font-family:'Space Grotesk',sans-serif}
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-  section{padding:90px 0;position:relative}
-  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .tag{font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:13px}
-  .sec-title{font-size:36px;text-align:center;margin-bottom:8px;font-weight:700}
-  .sec-sub{text-align:center;color:var(--muted);margin-bottom:52px}
+  section{padding:88px 0}
+  .white{background:#fff}
+  .tag{font-weight:600;letter-spacing:1.5px;text-transform:uppercase;font-size:13px;color:var(--blue)}
+  .sec-title{font-size:36px;text-align:center;margin-bottom:8px;font-weight:700;color:var(--text)}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:50px}
 
-  header{position:fixed;top:0;left:0;right:0;background:rgba(10,14,26,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+  header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
   nav{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .logo{font-size:24px;font-weight:700}
-  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logo{font-size:24px;font-weight:700;color:var(--text)}
+  .logo span{color:var(--blue)}
   .nav-links{display:flex;gap:28px}
-  .nav-links a{color:var(--muted);font-weight:500;font-size:15px;transition:color .2s}
-  .nav-links a:hover{color:var(--cyan)}
+  .nav-links a{color:var(--text);font-weight:500;font-size:15px;transition:color .2s}
+  .nav-links a:hover{color:var(--blue)}
   .burger{display:none;font-size:24px;color:var(--text);background:none;border:none;cursor:pointer}
 
-  .hero{overflow:hidden;padding-top:150px;padding-bottom:90px}
-  .hero::before{content:'';position:absolute;top:-120px;left:-120px;width:460px;height:460px;background:radial-gradient(circle,rgba(34,211,238,.20),transparent 70%);pointer-events:none}
-  .hero::after{content:'';position:absolute;bottom:-140px;right:-100px;width:520px;height:520px;background:radial-gradient(circle,rgba(168,85,247,.18),transparent 70%);pointer-events:none}
+  .hero{background:var(--grad);color:#fff;padding-top:150px;padding-bottom:80px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;bottom:-60px;right:-40px;width:420px;height:420px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%);pointer-events:none}
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
-  .hero .tag{color:var(--cyan)}
-  .hero h1{font-size:54px;line-height:1.08;margin:12px 0 12px;font-weight:700}
-  .typed{font-size:24px;font-weight:600;min-height:36px}
-  .hero p.lead{margin:18px 0 28px;color:var(--muted);max-width:520px}
+  .hero .tag{color:#cfe4fb}
+  .hero h1{font-size:54px;line-height:1.08;margin:12px 0 12px;color:#fff;font-weight:700}
+  .typed{font-size:24px;font-weight:600;min-height:36px;color:#e9f4ff}
+  .hero p.lead{margin:18px 0 28px;color:#e3eefb;max-width:520px}
   .btns{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{padding:13px 28px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
-  .btn-primary{background:var(--grad);color:#06121f;box-shadow:0 8px 24px rgba(79,124,255,.35)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(168,85,247,.45)}
-  .btn-outline{border:1.5px solid var(--border2);color:var(--cyan)}
-  .btn-outline:hover{background:rgba(34,211,238,.12)}
+  .btn{padding:13px 26px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;display:inline-flex;align-items:center;gap:8px}
+  .btn-white{background:#fff;color:var(--blue)}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.18)}
+  .btn-ghost{border:2px solid rgba(255,255,255,.75);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.14)}
+  .btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 22px rgba(15,108,189,.3)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,108,189,.42)}
+  .btn-outline{border:2px solid var(--blue);color:var(--blue)}
+  .btn-outline:hover{background:var(--blue);color:#fff}
   .socials{display:flex;gap:14px;margin-top:26px}
-  .socials a{width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s,box-shadow .2s}
-  .socials a:hover{transform:translateY(-3px);box-shadow:0 0 20px rgba(34,211,238,.4)}
-  .hero-photo{display:flex;flex-direction:column;align-items:center;gap:20px}
-  .photo-ring{width:300px;height:300px;border-radius:50%;padding:5px;background:var(--grad);box-shadow:0 0 70px rgba(34,211,238,.28)}
-  .photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:5px solid var(--bg)}
-  .photo-caption{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;text-align:center}
+  .socials a{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s,background .2s}
+  .socials a:hover{transform:translateY(-3px);background:rgba(255,255,255,.28)}
+  .hero-photo{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .photo-ring{width:290px;height:290px;border-radius:50%;padding:6px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+  .photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+  .photo-caption{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;text-align:center;color:#fff}
 
-  #about{background:var(--bg2)}
   .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center}
-  .about-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;text-align:center}
-  .about-card img.photo{width:100%;max-width:230px;border-radius:16px;display:block;margin:0 auto;border:1px solid var(--border)}
+  .about-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(15,108,189,.06)}
+  .about-card img.photo{width:100%;max-width:230px;border-radius:16px;display:block;margin:0 auto}
   .about h3{font-size:26px;margin-bottom:6px;font-weight:700}
-  .about .role{font-weight:600;margin-bottom:16px}
+  .about .role{color:var(--blue);font-weight:600;margin-bottom:16px}
   .about p{color:var(--muted)}
   .mini-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-  .mini{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px}
-  .mini i{font-size:20px;margin-bottom:6px;color:var(--cyan)}
+  .mini{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:16px}
+  .mini i{font-size:20px;margin-bottom:6px;color:var(--blue)}
   .mini h4{font-size:15px;margin-bottom:2px}
   .mini p{font-size:13px;color:var(--muted)}
 
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:50px}
   .col-title{font-size:20px;margin-bottom:26px;display:flex;align-items:center;gap:10px;font-weight:600}
-  .col-title i{color:var(--cyan)}
+  .col-title i{color:var(--blue)}
   .timeline{position:relative;padding-left:28px}
   .timeline::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--grad)}
   .tl-item{position:relative;margin-bottom:26px}
-  .tl-item::before{content:'';position:absolute;left:-35px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px rgba(34,211,238,.6)}
-  .tl-logo{width:54px;height:54px;object-fit:contain;background:#fff;border-radius:12px;padding:5px;margin-bottom:10px;display:block}
-  .tl-item .when{font-size:13px;font-weight:600;color:var(--cyan)}
+  .tl-item::before{content:'';position:absolute;left:-35px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(15,108,189,.15)}
+  .tl-logo{width:54px;height:54px;object-fit:contain;background:#fff;border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:10px;display:block}
+  .tl-item .when{font-size:13px;font-weight:600;color:var(--blue)}
   .tl-item h4{font-size:17px;margin:2px 0;font-weight:600}
   .tl-item p{font-size:14px;color:var(--muted)}
 
   .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-  .skill-box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;transition:border-color .2s,box-shadow .2s}
-  .skill-box:hover{border-color:var(--border2);box-shadow:0 0 26px rgba(34,211,238,.12)}
+  .skill-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px;transition:box-shadow .2s,transform .2s}
+  .skill-box:hover{box-shadow:0 12px 30px rgba(15,108,189,.12);transform:translateY(-3px)}
   .skill-box h4{margin-bottom:14px;display:flex;align-items:center;gap:8px;font-weight:600}
-  .skill-box h4 i{color:var(--cyan)}
-  .pill{display:inline-block;background:rgba(34,211,238,.1);color:#7ee7f5;border:1px solid rgba(34,211,238,.2);font-size:13px;font-weight:500;padding:6px 14px;border-radius:20px;margin:0 6px 8px 0}
+  .skill-box h4 i{color:var(--blue)}
+  .pill{display:inline-block;background:#e6f0fb;color:var(--blue-dark);border:1px solid #cfe0f5;font-size:13px;font-weight:500;padding:6px 14px;border-radius:20px;margin:0 6px 8px 0}
 
-  #projets{background:var(--bg2)}
   .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-  .proj{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .proj:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,.5);border-color:var(--border2)}
-  .proj .thumb{height:150px;background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(168,85,247,.18));display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:44px}
-  .proj .body{padding:22px}
+  .proj{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+  .proj:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,108,189,.16)}
+  .proj .thumb{height:140px;background:linear-gradient(135deg,#dbeafe,#eaf2fc);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:42px}
+  .proj .body{padding:22px;display:flex;flex-direction:column;flex:1}
   .proj h4{font-size:18px;margin-bottom:8px;font-weight:600}
-  .proj p{font-size:14px;color:var(--muted);margin-bottom:14px}
-  .proj .ptags span{display:inline-block;background:rgba(168,85,247,.12);color:#d6b4fb;border:1px solid rgba(168,85,247,.25);font-size:12px;padding:4px 10px;border-radius:12px;margin:0 6px 6px 0}
+  .proj p{font-size:14px;color:var(--muted);margin-bottom:14px;flex:1}
+  .proj .ptags{margin-bottom:16px}
+  .proj .ptags span{display:inline-block;background:#e6f0fb;color:var(--blue-dark);font-size:12px;padding:4px 10px;border-radius:12px;margin:0 6px 6px 0}
+  .proj .plink{align-self:flex-start;font-size:13px;padding:9px 18px}
 
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
   .c-item{display:flex;gap:16px;align-items:center;margin-bottom:22px}
-  .c-item .ic{width:48px;height:48px;border-radius:12px;background:rgba(34,211,238,.1);border:1px solid var(--border);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 auto}
+  .c-item .ic{width:48px;height:48px;border-radius:12px;background:#e6f0fb;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 auto}
   .c-item h4{font-size:15px}
   .c-item p{font-size:14px;color:var(--muted);word-break:break-word}
-  form input,form textarea{width:100%;padding:14px;background:var(--card2);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;font-family:inherit;font-size:14px;color:var(--text)}
-  form input::placeholder,form textarea::placeholder{color:#63708c}
-  form input:focus,form textarea:focus{outline:none;border-color:var(--border2)}
+  form input,form textarea{width:100%;padding:14px;background:#fff;border:1px solid var(--border);border-radius:12px;margin-bottom:14px;font-family:inherit;font-size:14px;color:var(--text)}
+  form input:focus,form textarea:focus{outline:none;border-color:var(--blue)}
   form textarea{min-height:120px;resize:vertical}
 
-  footer{background:#070a12;border-top:1px solid var(--border);text-align:center;padding:40px 0;color:var(--muted)}
+  footer{background:#0c2a4d;color:#c7d6ea;text-align:center;padding:40px 0}
+  footer .logo{color:#fff}
   footer .fsoc{display:flex;gap:16px;justify-content:center;margin:18px 0}
-  footer .fsoc a{color:var(--muted);font-size:20px;transition:color .2s}
-  footer .fsoc a:hover{color:var(--cyan)}
+  footer .fsoc a{color:#c7d6ea;font-size:20px;transition:color .2s}
+  footer .fsoc a:hover{color:#fff}
 
   @media(max-width:820px){
     .hero-grid,.about-grid,.two-col,.contact-grid{grid-template-columns:1fr}
     .hero h1{font-size:40px}
-    .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border)}
+    .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border)}
     .nav-links.open{display:flex}
     .burger{display:block}
     .hero-photo{order:-1}
@@ -151,11 +152,11 @@
     <div>
       <p class="tag">Bonjour, je suis</p>
       <h1>Gilbert OUMSAORE</h1>
-      <div class="typed grad-text" id="typed"></div>
+      <div class="typed" id="typed"></div>
       <p class="lead">Analyste statisticien et data scientist, diplômé de l'ENSAE Pierre Ndiaye (Dakar). Je transforme les données en informations utiles à la décision.</p>
       <div class="btns">
-        <a href="#projets" class="btn btn-primary">Mes projets <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#contact" class="btn btn-outline">Me contacter</a>
+        <a href="#projets" class="btn btn-white">Mes projets <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost">Me contacter</a>
       </div>
       <div class="socials">
         <a href="https://www.linkedin.com/in/gilbert-oumsaore-33029041a" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -165,14 +166,14 @@
     </div>
     <div class="hero-photo">
       <div class="photo-ring"><img src="photo.jpg" alt="Gilbert OUMSAORE"/></div>
-      <div class="photo-caption grad-text">Analyste statisticien, Data scientist</div>
+      <div class="photo-caption">Analyste statisticien, Data scientist</div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="white">
   <div class="wrap">
-    <p class="tag grad-text" style="text-align:center">À propos</p>
+    <p class="tag" style="text-align:center">À propos</p>
     <h2 class="sec-title">Mon parcours et ma passion</h2>
     <p class="sec-sub">Qui suis-je ?</p>
     <div class="about-grid">
@@ -181,7 +182,7 @@
       </div>
       <div class="about">
         <h3>Gilbert OUMSAORE</h3>
-        <p class="role grad-text">Analyste statisticien | Data scientist</p>
+        <p class="role">Analyste statisticien | Data scientist</p>
         <p>Diplômé de l'École nationale de la Statistique et de l'Analyse économique (ENSAE) Pierre Ndiaye de Dakar, je suis passionné par l'analyse et la valorisation des données. J'aime transformer des données brutes en informations claires et en solutions concrètes au service de la décision.</p>
         <div class="mini-cards">
           <div class="mini"><i class="fa-solid fa-graduation-cap"></i><h4>Formation</h4><p>ENSAE Pierre Ndiaye, Dakar</p></div>
@@ -196,7 +197,7 @@
 
 <section id="formation">
   <div class="wrap">
-    <p class="tag grad-text" style="text-align:center">Parcours & Engagements</p>
+    <p class="tag" style="text-align:center">Parcours & Engagements</p>
     <h2 class="sec-title">Mon parcours</h2>
     <p class="sec-sub">De Dédougou à Dakar</p>
     <div class="two-col">
@@ -218,9 +219,9 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="white">
   <div class="wrap">
-    <p class="tag grad-text" style="text-align:center">Compétences</p>
+    <p class="tag" style="text-align:center">Compétences</p>
     <h2 class="sec-title">Ce que je maîtrise</h2>
     <p class="sec-sub">Analyse de données, statistiques et data science</p>
     <div class="skill-grid">
@@ -240,20 +241,26 @@
 
 <section id="projets">
   <div class="wrap">
-    <p class="tag grad-text" style="text-align:center">Projets</p>
-    <h2 class="sec-title">Découvrez mon travail</h2>
-    <p class="sec-sub">Un aperçu de mon travail</p>
+    <p class="tag" style="text-align:center">Projets</p>
+    <h2 class="sec-title">Mes projets</h2>
+    <p class="sec-sub">Une sélection de mes travaux (code disponible sur GitHub)</p>
     <div class="proj-grid">
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-hand-holding-dollar"></i></div><div class="body"><h4>Modèle de crédit scoring — CIF</h4><p>Conception d'un modèle de scoring de crédit pour la CIF (Confédération des Institutions Financières) : évaluation du risque des emprunteurs afin d'appuyer la décision d'octroi de crédit.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>Scoring</span></div></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-line"></i></div><div class="body"><h4>[Autre projet]</h4><p>[Courte description : problème traité, méthode, résultat ou impact.]</p><div class="ptags"><span>Python</span><span>Data</span></div></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-database"></i></div><div class="body"><h4>[Autre projet]</h4><p>[Courte description : problème traité, méthode, résultat ou impact.]</p><div class="ptags"><span>SQL</span><span>Power BI</span></div></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-hand-holding-dollar"></i></div><div class="body"><h4>Teranga Score — Scoring de microcrédit</h4><p>Modèle de scoring de microcrédit interprétable et analyse de survie pour les coopératives de l'UEMOA. Réalisé lors du hackathon CIF DigiCoop-WA+.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>Analyse de survie</span></div><a href="https://github.com/gilbert-2004/teranga-score" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-line"></i></div><div class="body"><h4>Analyse de séries temporelles</h4><p>Modélisation de séries temporelles : étude de la tendance, de la saisonnalité et prévision.</p><div class="ptags"><span>Python</span><span>Séries temporelles</span><span>Prévision</span></div><a href="https://github.com/gilbert-2004/Serie_temporelle" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-column"></i></div><div class="body"><h4>Application de data visualisation</h4><p>Application interactive de visualisation de données (Dash) adossée à une base de données SQL.</p><div class="ptags"><span>Python</span><span>Dash</span><span>SQL</span></div><a href="https://github.com/gilbert-2004/Data_Visualization" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-newspaper"></i></div><div class="body"><h4>Analyse des tendances médiatiques</h4><p>Collecte de données par web scraping et analyse des tendances dans les médias.</p><div class="ptags"><span>Python</span><span>Web scraping</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Webscrapping" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-tags"></i></div><div class="body"><h4>Classification automatique de produits</h4><p>Classification automatique de biens de consommation à partir de leurs descriptions.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Classification-Produits" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-gauge-high"></i></div><div class="body"><h4>Tableau de bord interactif</h4><p>Tableau de bord interactif pour le suivi et l'analyse d'indicateurs clés.</p><div class="ptags"><span>Python</span><span>Dashboard</span><span>Dataviz</span></div><a href="https://github.com/gilbert-2004/Dashboard" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="https://github.com/gilbert-2004?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary">Voir tous mes projets sur GitHub <i class="fa-brands fa-github"></i></a>
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="white">
   <div class="wrap">
-    <p class="tag grad-text" style="text-align:center">Contact</p>
+    <p class="tag" style="text-align:center">Contact</p>
     <h2 class="sec-title">Travaillons ensemble</h2>
     <p class="sec-sub">N'hésitez pas à me contacter</p>
     <div class="contact-grid">
@@ -277,14 +284,14 @@
 
 <footer>
   <div class="wrap">
-    <div class="logo" style="font-size:22px">Gilbert<span>.</span></div>
+    <div class="logo" style="font-size:22px">Gilbert<span style="color:#6bb3f2">.</span></div>
     <p style="margin-top:8px">Analyste statisticien et data scientist, passionné par la valorisation des données.</p>
     <div class="fsoc">
       <a href="https://www.linkedin.com/in/gilbert-oumsaore-33029041a"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/gilbert-2004"><i class="fa-brands fa-github"></i></a>
       <a href="mailto:oumsaoregilbert@gmail.com"><i class="fa-solid fa-envelope"></i></a>
     </div>
-    <p style="font-size:13px;color:#5b6580">© 2026 Gilbert OUMSAORE. Tous droits réservés.</p>
+    <p style="font-size:13px;color:#8fa6c4">© 2026 Gilbert OUMSAORE. Tous droits réservés.</p>
   </div>
 </footer>
 
