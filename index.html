@@ -76,15 +76,16 @@
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:50px}
   .col-title{font-size:20px;margin-bottom:26px;display:flex;align-items:center;gap:10px;font-weight:600}
   .col-title i{color:var(--blue)}
-  .timeline{position:relative;padding-left:28px}
-  .timeline::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--grad)}
-  .tl-item{position:relative;margin-bottom:26px}
-  .tl-item::before{content:'';position:absolute;left:-35px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(15,108,189,.15)}
-  .tl-logo{width:54px;height:54px;object-fit:contain;background:#fff;border:1px solid var(--border);border-radius:12px;padding:5px;margin-bottom:10px;display:block}
-  .tl-logo-wide{height:42px;width:auto;max-width:180px;object-fit:contain;margin-bottom:10px;display:block}
-  .tl-item .when{font-size:13px;font-weight:600;color:var(--blue)}
-  .tl-item h4{font-size:17px;margin:2px 0;font-weight:600}
-  .tl-item p{font-size:14px;color:var(--muted)}
+  .pcard{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:24px;box-shadow:0 6px 20px rgba(15,108,189,.06);transition:transform .2s,box-shadow .2s}
+  .pcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(15,108,189,.15)}
+  .pcard .media{height:150px;background:#eef4fb;display:flex;align-items:center;justify-content:center;padding:18px;border-bottom:1px solid var(--border)}
+  .pcard .media img{max-height:110px;max-width:82%;object-fit:contain}
+  .pcard .media.cover{padding:0}
+  .pcard .media.cover img{width:100%;height:100%;max-height:none;max-width:none;object-fit:cover}
+  .pcard .info{padding:18px 20px}
+  .pcard .when{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}
+  .pcard h4{font-size:19px;margin:5px 0 7px;font-weight:600}
+  .pcard p{font-size:14px;color:var(--muted)}
 
   .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
   .skill-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px;transition:box-shadow .2s,transform .2s}
@@ -204,17 +205,28 @@
     <div class="two-col">
       <div>
         <div class="col-title"><i class="fa-solid fa-graduation-cap"></i> Formation</div>
-        <div class="timeline">
-          <div class="tl-item"><img class="tl-logo" src="ensae.webp" alt="ENSAE Pierre Ndiaye"/><span class="when">Diplômé</span><h4>ENSAE Pierre Ndiaye, Dakar</h4><p>École nationale de la Statistique et de l'Analyse économique. Analyste statisticien et data scientist.</p></div>
-          <div class="tl-item"><img class="tl-logo" src="lycee.png" alt="Lycée scientifique de Dédougou"/><span class="when">Baccalauréat scientifique</span><h4>Lycée scientifique de Dédougou</h4><p>Burkina Faso. Formation scientifique (mathématiques, sciences).</p></div>
+        <div class="pcard">
+          <div class="media cover"><img src="ensae.webp" alt="ENSAE Pierre Ndiaye"/></div>
+          <div class="info"><span class="when">Diplômé</span><h4>ENSAE Pierre Ndiaye, Dakar</h4><p>École nationale de la Statistique et de l'Analyse économique. Analyste statisticien et data scientist.</p></div>
+        </div>
+        <div class="pcard">
+          <div class="media cover"><img src="lycee.png" alt="Lycée scientifique de Dédougou"/></div>
+          <div class="info"><span class="when">Baccalauréat scientifique</span><h4>Lycée scientifique de Dédougou</h4><p>Burkina Faso. Formation scientifique (mathématiques, sciences).</p></div>
         </div>
       </div>
       <div>
         <div class="col-title"><i class="fa-solid fa-handshake"></i> Engagements</div>
-        <div class="timeline">
-          <div class="tl-item"><img class="tl-logo-wide" src="aims.webp" alt="AIMS South Africa"/><span class="when">Membre — Community Cohort</span><h4>AIMS AI Research Foundations</h4><p>Programme de recherche en intelligence artificielle, AIMS Afrique du Sud.</p></div>
-          <div class="tl-item"><img class="tl-logo" src="rotaract.png" alt="Rotaract Club Phénix Dakar"/><span class="when">Membre</span><h4>Rotaract Club Phénix Dakar</h4><p>Membre de la commission AIP.</p></div>
-          <div class="tl-item"><img class="tl-logo" src="ashinaga-logo.jpg" alt="Ashinaga"/><span class="when">Participant</span><h4>Initiative Ashinaga pour l'Afrique (IAA)</h4><p>14e Promotion.</p></div>
+        <div class="pcard">
+          <div class="media"><img src="aims.webp" alt="AIMS South Africa"/></div>
+          <div class="info"><span class="when">Membre — Community Cohort</span><h4>AIMS AI Research Foundations</h4><p>Programme de recherche en intelligence artificielle, AIMS Afrique du Sud.</p></div>
+        </div>
+        <div class="pcard">
+          <div class="media"><img src="rotaract.png" alt="Rotaract Club Phénix Dakar"/></div>
+          <div class="info"><span class="when">Membre</span><h4>Rotaract Club Phénix Dakar</h4><p>Membre de la commission AIP.</p></div>
+        </div>
+        <div class="pcard">
+          <div class="media"><img src="ashinaga-logo.jpg" alt="Ashinaga"/></div>
+          <div class="info"><span class="when">Participant</span><h4>Initiative Ashinaga pour l'Afrique (IAA)</h4><p>14e Promotion.</p></div>
         </div>
       </div>
     </div>
