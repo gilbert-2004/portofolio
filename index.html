@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gilbert OUMSAORE | Analyste Statisticien & Data Scientist</title>
+<title>Gilbert OUMSAORE | Statistical Analyst & Data Scientist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
@@ -17,8 +17,8 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;background:var(--bg)}
-  h1,h2,h3,.logo,.typed{font-family:'Space Grotesk',sans-serif}
+  body{font-family:'Inter','Noto Sans JP',sans-serif;color:var(--text);line-height:1.7;background:var(--bg)}
+  h1,h2,h3,.logo,.typed{font-family:'Space Grotesk','Noto Sans JP',sans-serif}
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
   section{padding:88px 0}
@@ -27,13 +27,18 @@
   .sec-title{font-size:36px;text-align:center;margin-bottom:8px;font-weight:700;color:var(--text)}
   .sec-sub{text-align:center;color:var(--muted);margin-bottom:50px}
 
-  header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
+  header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100}
   nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .nav-right{display:flex;align-items:center;gap:22px}
   .logo{font-size:24px;font-weight:700;color:var(--text)}
   .logo span{color:var(--blue)}
-  .nav-links{display:flex;gap:28px}
+  .nav-links{display:flex;gap:26px}
   .nav-links a{color:var(--text);font-weight:500;font-size:15px;transition:color .2s}
   .nav-links a:hover{color:var(--blue)}
+  .lang-switch{display:flex;gap:4px}
+  .lang-switch button{background:transparent;border:1px solid var(--border);color:var(--text);font-size:12px;font-weight:600;padding:5px 9px;border-radius:8px;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+  .lang-switch button:hover{border-color:var(--blue)}
+  .lang-switch button.active{background:var(--blue);color:#fff;border-color:var(--blue)}
   .burger{display:none;font-size:24px;color:var(--text);background:none;border:none;cursor:pointer}
 
   .hero{background:var(--grad);color:#fff;padding-top:150px;padding-bottom:80px;position:relative;overflow:hidden}
@@ -59,7 +64,7 @@
   .hero-photo{display:flex;flex-direction:column;align-items:center;gap:18px}
   .photo-ring{width:290px;height:290px;border-radius:50%;padding:6px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.25)}
   .photo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-  .photo-caption{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;text-align:center;color:#fff}
+  .photo-caption{font-family:'Space Grotesk','Noto Sans JP',sans-serif;font-weight:600;font-size:20px;text-align:center;color:#fff}
 
   .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center}
   .about-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;text-align:center;box-shadow:0 10px 30px rgba(15,108,189,.06)}
@@ -120,7 +125,7 @@
   footer .fsoc a{color:#c7d6ea;font-size:20px;transition:color .2s}
   footer .fsoc a:hover{color:#fff}
 
-  @media(max-width:820px){
+  @media(max-width:860px){
     .hero-grid,.about-grid,.two-col,.contact-grid{grid-template-columns:1fr}
     .hero h1{font-size:40px}
     .nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--border)}
@@ -137,14 +142,21 @@
   <div class="wrap">
     <nav>
       <div class="logo">Gilbert<span>.</span></div>
-      <div class="nav-links" id="menu">
-        <a href="#about">À propos</a>
-        <a href="#formation">Parcours</a>
-        <a href="#skills">Compétences</a>
-        <a href="#projets">Projets</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-right">
+        <div class="nav-links" id="menu">
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#formation" data-i18n="nav.journey">Background</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#projets" data-i18n="nav.projects">Projects</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="lang-switch">
+          <button data-lang="en">EN</button>
+          <button data-lang="fr">FR</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+        <button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
       </div>
-      <button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </nav>
   </div>
 </header>
@@ -152,13 +164,13 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="tag">Bonjour, je suis</p>
+      <p class="tag" data-i18n="hero.hi">Hello, I am</p>
       <h1>Gilbert OUMSAORE</h1>
       <div class="typed" id="typed"></div>
-      <p class="lead">Analyste statisticien et data scientist, diplômé de l'ENSAE Pierre Ndiaye (Dakar). Je transforme les données en informations utiles à la décision.</p>
+      <p class="lead" data-i18n="hero.lead">Statistical analyst and data scientist, graduate of ENSAE Pierre Ndiaye (Dakar). I turn data into insights that support decision-making.</p>
       <div class="btns">
-        <a href="#projets" class="btn btn-white">Mes projets <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        <a href="#projets" class="btn btn-white"><span data-i18n="btn.projects">My projects</span> <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost"><span data-i18n="btn.contact">Contact me</span></a>
       </div>
       <div class="socials">
         <a href="https://www.linkedin.com/in/gilbert-oumsaore-33029041a" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -168,29 +180,29 @@
     </div>
     <div class="hero-photo">
       <div class="photo-ring"><img src="photo.jpg" alt="Gilbert OUMSAORE"/></div>
-      <div class="photo-caption">Analyste statisticien, Data scientist</div>
+      <div class="photo-caption" data-i18n="hero.caption">Statistical analyst, Data scientist</div>
     </div>
   </div>
 </section>
 
 <section id="about" class="white">
   <div class="wrap">
-    <p class="tag" style="text-align:center">À propos</p>
-    <h2 class="sec-title">Mon parcours et ma passion</h2>
-    <p class="sec-sub">Qui suis-je ?</p>
+    <p class="tag" style="text-align:center" data-i18n="about.tag">About</p>
+    <h2 class="sec-title" data-i18n="about.title">My background and passion</h2>
+    <p class="sec-sub" data-i18n="about.sub">Who am I?</p>
     <div class="about-grid">
       <div class="about-card">
         <img class="photo" src="photo.jpg" alt="Gilbert OUMSAORE"/>
       </div>
       <div class="about">
         <h3>Gilbert OUMSAORE</h3>
-        <p class="role">Analyste statisticien | Data scientist</p>
-        <p>Diplômé de l'École nationale de la Statistique et de l'Analyse économique (ENSAE) Pierre Ndiaye de Dakar, je suis passionné par l'analyse et la valorisation des données. J'aime transformer des données brutes en informations claires et en solutions concrètes au service de la décision.</p>
+        <p class="role" data-i18n="about.role">Statistical analyst | Data scientist</p>
+        <p data-i18n="about.desc">A graduate of the École nationale de la Statistique et de l'Analyse économique (ENSAE) Pierre Ndiaye in Dakar, I am passionate about analysing data and unlocking its value. I enjoy turning raw data into clear insights and concrete solutions that support decision-making.</p>
         <div class="mini-cards">
-          <div class="mini"><i class="fa-solid fa-graduation-cap"></i><h4>Formation</h4><p>ENSAE Pierre Ndiaye, Dakar</p></div>
-          <div class="mini"><i class="fa-solid fa-location-dot"></i><h4>Localisation</h4><p>Dakar, Sénégal</p></div>
-          <div class="mini"><i class="fa-solid fa-language"></i><h4>Langues</h4><p>Mooré, Bambara, Français, Anglais</p></div>
-          <div class="mini"><i class="fa-solid fa-lightbulb"></i><h4>Domaines</h4><p>Data science, Statistiques, Économie</p></div>
+          <div class="mini"><i class="fa-solid fa-graduation-cap"></i><h4 data-i18n="mini.edu">Education</h4><p>ENSAE Pierre Ndiaye, Dakar</p></div>
+          <div class="mini"><i class="fa-solid fa-location-dot"></i><h4 data-i18n="mini.loc">Location</h4><p data-i18n="mini.loc_v">Dakar, Senegal</p></div>
+          <div class="mini"><i class="fa-solid fa-language"></i><h4 data-i18n="mini.lang">Languages</h4><p data-i18n="mini.lang_v">Mooré, Bambara, French, English</p></div>
+          <div class="mini"><i class="fa-solid fa-lightbulb"></i><h4 data-i18n="mini.fields">Fields</h4><p data-i18n="mini.fields_v">Data science, Statistics, Economics</p></div>
         </div>
       </div>
     </div>
@@ -199,34 +211,34 @@
 
 <section id="formation">
   <div class="wrap">
-    <p class="tag" style="text-align:center">Parcours & Engagements</p>
-    <h2 class="sec-title">Mon parcours</h2>
-    <p class="sec-sub">De Dédougou à Dakar</p>
+    <p class="tag" style="text-align:center" data-i18n="pc.tag">Background & Involvement</p>
+    <h2 class="sec-title" data-i18n="pc.title">My journey</h2>
+    <p class="sec-sub" data-i18n="pc.sub">From Dédougou to Dakar</p>
     <div class="two-col">
       <div>
-        <div class="col-title"><i class="fa-solid fa-graduation-cap"></i> Formation</div>
+        <div class="col-title"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="col.edu">Education</span></div>
         <div class="pcard">
           <div class="media cover"><img src="ensae.webp" alt="ENSAE Pierre Ndiaye"/></div>
-          <div class="info"><span class="when">Diplômé</span><h4>ENSAE Pierre Ndiaye, Dakar</h4><p>École nationale de la Statistique et de l'Analyse économique. Analyste statisticien et data scientist.</p></div>
+          <div class="info"><span class="when" data-i18n="ensae.when">Graduate</span><h4>ENSAE Pierre Ndiaye, Dakar</h4><p data-i18n="ensae.p">École nationale de la Statistique et de l'Analyse économique. Statistical analyst and data scientist.</p></div>
         </div>
         <div class="pcard">
           <div class="media cover"><img src="lycee.png" alt="Lycée scientifique de Dédougou"/></div>
-          <div class="info"><span class="when">Baccalauréat scientifique</span><h4>Lycée scientifique de Dédougou</h4><p>Burkina Faso. Formation scientifique (mathématiques, sciences).</p></div>
+          <div class="info"><span class="when" data-i18n="lycee.when">Science Baccalaureate</span><h4>Lycée scientifique de Dédougou</h4><p data-i18n="lycee.p">Burkina Faso. Scientific track (mathematics, sciences).</p></div>
         </div>
       </div>
       <div>
-        <div class="col-title"><i class="fa-solid fa-handshake"></i> Engagements</div>
+        <div class="col-title"><i class="fa-solid fa-handshake"></i> <span data-i18n="col.inv">Involvement</span></div>
         <div class="pcard">
           <div class="media"><img src="aims.webp" alt="AIMS South Africa"/></div>
-          <div class="info"><span class="when">Membre — Community Cohort</span><h4>AIMS AI Research Foundations</h4><p>Programme de recherche en intelligence artificielle, AIMS Afrique du Sud.</p></div>
+          <div class="info"><span class="when" data-i18n="aims.when">Member — Community Cohort</span><h4>AIMS AI Research Foundations</h4><p data-i18n="aims.p">Artificial intelligence research programme, AIMS South Africa.</p></div>
         </div>
         <div class="pcard">
           <div class="media"><img src="rotaract.png" alt="Rotaract Club Phénix Dakar"/></div>
-          <div class="info"><span class="when">Membre</span><h4>Rotaract Club Phénix Dakar</h4><p>Membre de la commission AIP.</p></div>
+          <div class="info"><span class="when" data-i18n="rot.when">Member</span><h4>Rotaract Club Phénix Dakar</h4><p data-i18n="rot.p">Member of the AIP committee.</p></div>
         </div>
         <div class="pcard">
           <div class="media"><img src="ashinaga-logo.jpg" alt="Ashinaga"/></div>
-          <div class="info"><span class="when">Participant</span><h4>Initiative Ashinaga pour l'Afrique (IAA)</h4><p>14e Promotion.</p></div>
+          <div class="info"><span class="when" data-i18n="ash.when">Participant</span><h4>Initiative Ashinaga pour l'Afrique (IAA)</h4><p data-i18n="ash.p">14th cohort.</p></div>
         </div>
       </div>
     </div>
@@ -235,61 +247,61 @@
 
 <section id="skills" class="white">
   <div class="wrap">
-    <p class="tag" style="text-align:center">Compétences</p>
-    <h2 class="sec-title">Ce que je maîtrise</h2>
-    <p class="sec-sub">Analyse de données, statistiques et data science</p>
+    <p class="tag" style="text-align:center" data-i18n="sk.tag">Skills</p>
+    <h2 class="sec-title" data-i18n="sk.title">What I do best</h2>
+    <p class="sec-sub" data-i18n="sk.sub">Data analysis, statistics and data science</p>
     <div class="skill-grid">
-      <div class="skill-box"><h4><i class="fa-solid fa-code"></i> Langages & Stats</h4>
+      <div class="skill-box"><h4><i class="fa-solid fa-code"></i> <span data-i18n="sk.langs">Languages & Stats</span></h4>
         <span class="pill">Python</span><span class="pill">R</span><span class="pill">SQL</span><span class="pill">Stata</span></div>
-      <div class="skill-box"><h4><i class="fa-solid fa-brain"></i> Data Science</h4>
+      <div class="skill-box"><h4><i class="fa-solid fa-brain"></i> <span data-i18n="sk.ds">Data Science</span></h4>
         <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">scikit-learn</span><span class="pill">Power BI</span></div>
-      <div class="skill-box"><h4><i class="fa-solid fa-toolbox"></i> Outils</h4>
+      <div class="skill-box"><h4><i class="fa-solid fa-toolbox"></i> <span data-i18n="sk.tools">Tools</span></h4>
         <span class="pill">Git</span><span class="pill">VS Code</span><span class="pill">LaTeX</span><span class="pill">Excel</span></div>
-      <div class="skill-box"><h4><i class="fa-solid fa-language"></i> Langues</h4>
-        <span class="pill">Mooré (maternelle)</span><span class="pill">Bambara (natif)</span><span class="pill">Français (courant)</span><span class="pill">Anglais (avancé)</span></div>
-      <div class="skill-box"><h4><i class="fa-solid fa-user"></i> Personnelles</h4>
-        <span class="pill">Communication</span><span class="pill">Rigueur</span><span class="pill">Travail d'équipe</span><span class="pill">Adaptabilité</span></div>
+      <div class="skill-box"><h4><i class="fa-solid fa-language"></i> <span data-i18n="sk.languages">Languages</span></h4>
+        <span class="pill" data-i18n="pill.moore">Mooré (native)</span><span class="pill" data-i18n="pill.bambara">Bambara (native)</span><span class="pill" data-i18n="pill.french">French (fluent)</span><span class="pill" data-i18n="pill.english">English (advanced)</span></div>
+      <div class="skill-box"><h4><i class="fa-solid fa-user"></i> <span data-i18n="sk.soft">Soft skills</span></h4>
+        <span class="pill" data-i18n="pill.comm">Communication</span><span class="pill" data-i18n="pill.rigor">Rigor</span><span class="pill" data-i18n="pill.team">Teamwork</span><span class="pill" data-i18n="pill.adapt">Adaptability</span></div>
     </div>
   </div>
 </section>
 
 <section id="projets">
   <div class="wrap">
-    <p class="tag" style="text-align:center">Projets</p>
-    <h2 class="sec-title">Mes projets</h2>
-    <p class="sec-sub">Une sélection de mes travaux (code disponible sur GitHub)</p>
+    <p class="tag" style="text-align:center" data-i18n="pr.tag">Projects</p>
+    <h2 class="sec-title" data-i18n="pr.title">My projects</h2>
+    <p class="sec-sub" data-i18n="pr.sub">A selection of my work (code available on GitHub)</p>
     <div class="proj-grid">
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-hand-holding-dollar"></i></div><div class="body"><h4>Teranga Score — Scoring de microcrédit</h4><p>Modèle de scoring de microcrédit interprétable et analyse de survie pour les coopératives de l'UEMOA. Réalisé lors du hackathon CIF DigiCoop-WA+.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>Analyse de survie</span></div><a href="https://github.com/gilbert-2004/teranga-score" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-line"></i></div><div class="body"><h4>Analyse de séries temporelles</h4><p>Modélisation de séries temporelles : étude de la tendance, de la saisonnalité et prévision.</p><div class="ptags"><span>Python</span><span>Séries temporelles</span><span>Prévision</span></div><a href="https://github.com/gilbert-2004/Serie_temporelle" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-column"></i></div><div class="body"><h4>Application de data visualisation</h4><p>Application interactive de visualisation de données (Dash) adossée à une base de données SQL.</p><div class="ptags"><span>Python</span><span>Dash</span><span>SQL</span></div><a href="https://github.com/gilbert-2004/Data_Visualization" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-newspaper"></i></div><div class="body"><h4>Analyse des tendances médiatiques</h4><p>Collecte de données par web scraping et analyse des tendances dans les médias.</p><div class="ptags"><span>Python</span><span>Web scraping</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Webscrapping" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-tags"></i></div><div class="body"><h4>Classification automatique de produits</h4><p>Classification automatique de biens de consommation à partir de leurs descriptions.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Classification-Produits" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
-      <div class="proj"><div class="thumb"><i class="fa-solid fa-gauge-high"></i></div><div class="body"><h4>Tableau de bord interactif</h4><p>Tableau de bord interactif pour le suivi et l'analyse d'indicateurs clés.</p><div class="ptags"><span>Python</span><span>Dashboard</span><span>Dataviz</span></div><a href="https://github.com/gilbert-2004/Dashboard" target="_blank" rel="noopener" class="btn btn-outline plink">Voir le projet <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-hand-holding-dollar"></i></div><div class="body"><h4 data-i18n="p1.h">Teranga Score — Microcredit scoring</h4><p data-i18n="p1.p">Interpretable microcredit scoring model and survival analysis for UEMOA cooperatives. Built during the CIF DigiCoop-WA+ hackathon.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span data-i18n="tag.survival">Survival analysis</span></div><a href="https://github.com/gilbert-2004/teranga-score" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-line"></i></div><div class="body"><h4 data-i18n="p2.h">Time series analysis</h4><p data-i18n="p2.p">Time series modelling: trend, seasonality and forecasting.</p><div class="ptags"><span>Python</span><span data-i18n="tag.ts">Time series</span><span data-i18n="tag.forecast">Forecasting</span></div><a href="https://github.com/gilbert-2004/Serie_temporelle" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-chart-column"></i></div><div class="body"><h4 data-i18n="p3.h">Data visualisation app</h4><p data-i18n="p3.p">Interactive data visualisation app (Dash) backed by a SQL database.</p><div class="ptags"><span>Python</span><span>Dash</span><span>SQL</span></div><a href="https://github.com/gilbert-2004/Data_Visualization" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-newspaper"></i></div><div class="body"><h4 data-i18n="p4.h">Media trend analysis</h4><p data-i18n="p4.p">Data collection via web scraping and analysis of media trends.</p><div class="ptags"><span>Python</span><span data-i18n="tag.scrap">Web scraping</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Webscrapping" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-tags"></i></div><div class="body"><h4 data-i18n="p5.h">Automatic product classification</h4><p data-i18n="p5.p">Automatic classification of consumer goods from their descriptions.</p><div class="ptags"><span>Python</span><span>Machine Learning</span><span>NLP</span></div><a href="https://github.com/gilbert-2004/Classification-Produits" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
+      <div class="proj"><div class="thumb"><i class="fa-solid fa-gauge-high"></i></div><div class="body"><h4 data-i18n="p6.h">Interactive dashboard</h4><p data-i18n="p6.p">Interactive dashboard for monitoring and analysing key indicators.</p><div class="ptags"><span>Python</span><span>Dashboard</span><span>Dataviz</span></div><a href="https://github.com/gilbert-2004/Dashboard" target="_blank" rel="noopener" class="btn btn-outline plink"><span data-i18n="btn.view">View project</span> <i class="fa-brands fa-github"></i></a></div></div>
     </div>
     <div style="text-align:center;margin-top:36px">
-      <a href="https://github.com/gilbert-2004?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary">Voir tous mes projets sur GitHub <i class="fa-brands fa-github"></i></a>
+      <a href="https://github.com/gilbert-2004?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary"><span data-i18n="btn.allgh">See all my projects on GitHub</span> <i class="fa-brands fa-github"></i></a>
     </div>
   </div>
 </section>
 
 <section id="contact" class="white">
   <div class="wrap">
-    <p class="tag" style="text-align:center">Contact</p>
-    <h2 class="sec-title">Travaillons ensemble</h2>
-    <p class="sec-sub">N'hésitez pas à me contacter</p>
+    <p class="tag" style="text-align:center" data-i18n="ct.tag">Contact</p>
+    <h2 class="sec-title" data-i18n="ct.title">Let's work together</h2>
+    <p class="sec-sub" data-i18n="ct.sub">Feel free to get in touch</p>
     <div class="contact-grid">
       <div>
         <div class="c-item"><div class="ic"><i class="fa-solid fa-envelope"></i></div><div><h4>Email</h4><p>oumsaoregilbert@gmail.com</p></div></div>
         <div class="c-item"><div class="ic"><i class="fa-brands fa-linkedin-in"></i></div><div><h4>LinkedIn</h4><p>Gilbert OUMSAORE</p></div></div>
         <div class="c-item"><div class="ic"><i class="fa-brands fa-github"></i></div><div><h4>GitHub</h4><p>gilbert-2004</p></div></div>
-        <div class="c-item"><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><h4>Localisation</h4><p>Dakar, Sénégal</p></div></div>
+        <div class="c-item"><div class="ic"><i class="fa-solid fa-location-dot"></i></div><div><h4 data-i18n="ct.loc">Location</h4><p data-i18n="ct.loc_v">Dakar, Senegal</p></div></div>
       </div>
       <div>
         <form onsubmit="return sendMail(event)">
-          <input type="text" id="f-name" placeholder="Votre nom" required/>
-          <input type="email" id="f-mail" placeholder="Votre email" required/>
-          <textarea id="f-msg" placeholder="Votre message" required></textarea>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Envoyer le message <i class="fa-solid fa-paper-plane"></i></button>
+          <input type="text" id="f-name" data-i18n-ph="ph.name" placeholder="Your name" required/>
+          <input type="email" id="f-mail" data-i18n-ph="ph.email" placeholder="Your email" required/>
+          <textarea id="f-msg" data-i18n-ph="ph.msg" placeholder="Your message" required></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><span data-i18n="btn.send">Send message</span> <i class="fa-solid fa-paper-plane"></i></button>
         </form>
       </div>
     </div>
@@ -299,39 +311,138 @@
 <footer>
   <div class="wrap">
     <div class="logo" style="font-size:22px">Gilbert<span style="color:#6bb3f2">.</span></div>
-    <p style="margin-top:8px">Analyste statisticien et data scientist, passionné par la valorisation des données.</p>
+    <p style="margin-top:8px" data-i18n="ft.tag">Statistical analyst and data scientist, passionate about unlocking the value of data.</p>
     <div class="fsoc">
       <a href="https://www.linkedin.com/in/gilbert-oumsaore-33029041a"><i class="fa-brands fa-linkedin-in"></i></a>
       <a href="https://github.com/gilbert-2004"><i class="fa-brands fa-github"></i></a>
       <a href="mailto:oumsaoregilbert@gmail.com"><i class="fa-solid fa-envelope"></i></a>
     </div>
-    <p style="font-size:13px;color:#8fa6c4">© 2026 Gilbert OUMSAORE. Tous droits réservés.</p>
+    <p style="font-size:13px;color:#8fa6c4" data-i18n="ft.rights">© 2026 Gilbert OUMSAORE. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-  document.getElementById('burger').addEventListener('click',function(){
-    document.getElementById('menu').classList.toggle('open');
-  });
-  document.querySelectorAll('#menu a').forEach(function(a){
-    a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');});
-  });
-  var phrases=["Analyste statisticien","Data scientist","Diplômé de l'ENSAE Pierre Ndiaye"];
-  var el=document.getElementById('typed'),pi=0,ci=0,del=false;
+  var I18N = {
+    en: {
+      "nav.about":"About","nav.journey":"Background","nav.skills":"Skills","nav.projects":"Projects","nav.contact":"Contact",
+      "hero.hi":"Hello, I am","hero.lead":"Statistical analyst and data scientist, graduate of ENSAE Pierre Ndiaye (Dakar). I turn data into insights that support decision-making.","hero.caption":"Statistical analyst, Data scientist",
+      "btn.projects":"My projects","btn.contact":"Contact me","btn.view":"View project","btn.allgh":"See all my projects on GitHub","btn.send":"Send message",
+      "about.tag":"About","about.title":"My background and passion","about.sub":"Who am I?","about.role":"Statistical analyst | Data scientist","about.desc":"A graduate of the École nationale de la Statistique et de l'Analyse économique (ENSAE) Pierre Ndiaye in Dakar, I am passionate about analysing data and unlocking its value. I enjoy turning raw data into clear insights and concrete solutions that support decision-making.",
+      "mini.edu":"Education","mini.loc":"Location","mini.loc_v":"Dakar, Senegal","mini.lang":"Languages","mini.lang_v":"Mooré, Bambara, French, English","mini.fields":"Fields","mini.fields_v":"Data science, Statistics, Economics",
+      "pc.tag":"Background & Involvement","pc.title":"My journey","pc.sub":"From Dédougou to Dakar","col.edu":"Education","col.inv":"Involvement",
+      "ensae.when":"Graduate","ensae.p":"École nationale de la Statistique et de l'Analyse économique. Statistical analyst and data scientist.",
+      "lycee.when":"Science Baccalaureate","lycee.p":"Burkina Faso. Scientific track (mathematics, sciences).",
+      "aims.when":"Member — Community Cohort","aims.p":"Artificial intelligence research programme, AIMS South Africa.",
+      "rot.when":"Member","rot.p":"Member of the AIP committee.",
+      "ash.when":"Participant","ash.p":"14th cohort.",
+      "sk.tag":"Skills","sk.title":"What I do best","sk.sub":"Data analysis, statistics and data science","sk.langs":"Languages & Stats","sk.ds":"Data Science","sk.tools":"Tools","sk.languages":"Languages","sk.soft":"Soft skills",
+      "pill.moore":"Mooré (native)","pill.bambara":"Bambara (native)","pill.french":"French (fluent)","pill.english":"English (advanced)",
+      "pill.comm":"Communication","pill.rigor":"Rigor","pill.team":"Teamwork","pill.adapt":"Adaptability",
+      "pr.tag":"Projects","pr.title":"My projects","pr.sub":"A selection of my work (code available on GitHub)",
+      "p1.h":"Teranga Score — Microcredit scoring","p1.p":"Interpretable microcredit scoring model and survival analysis for UEMOA cooperatives. Built during the CIF DigiCoop-WA+ hackathon.",
+      "p2.h":"Time series analysis","p2.p":"Time series modelling: trend, seasonality and forecasting.",
+      "p3.h":"Data visualisation app","p3.p":"Interactive data visualisation app (Dash) backed by a SQL database.",
+      "p4.h":"Media trend analysis","p4.p":"Data collection via web scraping and analysis of media trends.",
+      "p5.h":"Automatic product classification","p5.p":"Automatic classification of consumer goods from their descriptions.",
+      "p6.h":"Interactive dashboard","p6.p":"Interactive dashboard for monitoring and analysing key indicators.",
+      "tag.survival":"Survival analysis","tag.ts":"Time series","tag.forecast":"Forecasting","tag.scrap":"Web scraping",
+      "ct.tag":"Contact","ct.title":"Let's work together","ct.sub":"Feel free to get in touch","ct.loc":"Location","ct.loc_v":"Dakar, Senegal",
+      "ph.name":"Your name","ph.email":"Your email","ph.msg":"Your message",
+      "ft.tag":"Statistical analyst and data scientist, passionate about unlocking the value of data.","ft.rights":"© 2026 Gilbert OUMSAORE. All rights reserved.",
+      "typed":["Statistical analyst","Data scientist","ENSAE Pierre Ndiaye graduate"]
+    },
+    fr: {
+      "nav.about":"À propos","nav.journey":"Parcours","nav.skills":"Compétences","nav.projects":"Projets","nav.contact":"Contact",
+      "hero.hi":"Bonjour, je suis","hero.lead":"Analyste statisticien et data scientist, diplômé de l'ENSAE Pierre Ndiaye (Dakar). Je transforme les données en informations utiles à la décision.","hero.caption":"Analyste statisticien, Data scientist",
+      "btn.projects":"Mes projets","btn.contact":"Me contacter","btn.view":"Voir le projet","btn.allgh":"Voir tous mes projets sur GitHub","btn.send":"Envoyer le message",
+      "about.tag":"À propos","about.title":"Mon parcours et ma passion","about.sub":"Qui suis-je ?","about.role":"Analyste statisticien | Data scientist","about.desc":"Diplômé de l'École nationale de la Statistique et de l'Analyse économique (ENSAE) Pierre Ndiaye de Dakar, je suis passionné par l'analyse et la valorisation des données. J'aime transformer des données brutes en informations claires et en solutions concrètes au service de la décision.",
+      "mini.edu":"Formation","mini.loc":"Localisation","mini.loc_v":"Dakar, Sénégal","mini.lang":"Langues","mini.lang_v":"Mooré, Bambara, Français, Anglais","mini.fields":"Domaines","mini.fields_v":"Data science, Statistiques, Économie",
+      "pc.tag":"Parcours & Engagements","pc.title":"Mon parcours","pc.sub":"De Dédougou à Dakar","col.edu":"Formation","col.inv":"Engagements",
+      "ensae.when":"Diplômé","ensae.p":"École nationale de la Statistique et de l'Analyse économique. Analyste statisticien et data scientist.",
+      "lycee.when":"Baccalauréat scientifique","lycee.p":"Burkina Faso. Formation scientifique (mathématiques, sciences).",
+      "aims.when":"Membre — Community Cohort","aims.p":"Programme de recherche en intelligence artificielle, AIMS Afrique du Sud.",
+      "rot.when":"Membre","rot.p":"Membre de la commission AIP.",
+      "ash.when":"Participant","ash.p":"14e Promotion.",
+      "sk.tag":"Compétences","sk.title":"Ce que je maîtrise","sk.sub":"Analyse de données, statistiques et data science","sk.langs":"Langages & Stats","sk.ds":"Data Science","sk.tools":"Outils","sk.languages":"Langues","sk.soft":"Personnelles",
+      "pill.moore":"Mooré (maternelle)","pill.bambara":"Bambara (natif)","pill.french":"Français (courant)","pill.english":"Anglais (avancé)",
+      "pill.comm":"Communication","pill.rigor":"Rigueur","pill.team":"Travail d'équipe","pill.adapt":"Adaptabilité",
+      "pr.tag":"Projets","pr.title":"Mes projets","pr.sub":"Une sélection de mes travaux (code disponible sur GitHub)",
+      "p1.h":"Teranga Score — Scoring de microcrédit","p1.p":"Modèle de scoring de microcrédit interprétable et analyse de survie pour les coopératives de l'UEMOA. Réalisé lors du hackathon CIF DigiCoop-WA+.",
+      "p2.h":"Analyse de séries temporelles","p2.p":"Modélisation de séries temporelles : étude de la tendance, de la saisonnalité et prévision.",
+      "p3.h":"Application de data visualisation","p3.p":"Application interactive de visualisation de données (Dash) adossée à une base de données SQL.",
+      "p4.h":"Analyse des tendances médiatiques","p4.p":"Collecte de données par web scraping et analyse des tendances dans les médias.",
+      "p5.h":"Classification automatique de produits","p5.p":"Classification automatique de biens de consommation à partir de leurs descriptions.",
+      "p6.h":"Tableau de bord interactif","p6.p":"Tableau de bord interactif pour le suivi et l'analyse d'indicateurs clés.",
+      "tag.survival":"Analyse de survie","tag.ts":"Séries temporelles","tag.forecast":"Prévision","tag.scrap":"Web scraping",
+      "ct.tag":"Contact","ct.title":"Travaillons ensemble","ct.sub":"N'hésitez pas à me contacter","ct.loc":"Localisation","ct.loc_v":"Dakar, Sénégal",
+      "ph.name":"Votre nom","ph.email":"Votre email","ph.msg":"Votre message",
+      "ft.tag":"Analyste statisticien et data scientist, passionné par la valorisation des données.","ft.rights":"© 2026 Gilbert OUMSAORE. Tous droits réservés.",
+      "typed":["Analyste statisticien","Data scientist","Diplômé de l'ENSAE Pierre Ndiaye"]
+    },
+    ja: {
+      "nav.about":"自己紹介","nav.journey":"経歴","nav.skills":"スキル","nav.projects":"プロジェクト","nav.contact":"お問い合わせ",
+      "hero.hi":"こんにちは、私は","hero.lead":"統計アナリスト兼データサイエンティスト。ENSAEピエール・ンディアイ（ダカール）卒業。データを意思決定に役立つ知見へと変えます。","hero.caption":"統計アナリスト、データサイエンティスト",
+      "btn.projects":"プロジェクト","btn.contact":"お問い合わせ","btn.view":"プロジェクトを見る","btn.allgh":"GitHubで全プロジェクトを見る","btn.send":"送信する",
+      "about.tag":"自己紹介","about.title":"経歴と情熱","about.sub":"私について","about.role":"統計アナリスト｜データサイエンティスト","about.desc":"ダカールの国立統計経済分析学校（ENSAE）ピエール・ンディアイを卒業。データの分析と価値創出に情熱を注いでいます。生のデータを明快な知見や具体的な解決策へと変え、意思決定を支えることが得意です。",
+      "mini.edu":"学歴","mini.loc":"所在地","mini.loc_v":"セネガル、ダカール","mini.lang":"言語","mini.lang_v":"モーレ語、バンバラ語、フランス語、英語","mini.fields":"分野","mini.fields_v":"データサイエンス、統計学、経済学",
+      "pc.tag":"経歴と活動","pc.title":"私の歩み","pc.sub":"デドゥグーからダカールへ","col.edu":"学歴","col.inv":"活動",
+      "ensae.when":"卒業","ensae.p":"国立統計経済分析学校。統計アナリスト兼データサイエンティスト。",
+      "lycee.when":"理系バカロレア","lycee.p":"ブルキナファソ。理系課程（数学・理科）。",
+      "aims.when":"メンバー — コミュニティコホート","aims.p":"人工知能研究プログラム、AIMS南アフリカ。",
+      "rot.when":"メンバー","rot.p":"AIP委員会メンバー。",
+      "ash.when":"参加者","ash.p":"第14期。",
+      "sk.tag":"スキル","sk.title":"得意分野","sk.sub":"データ分析、統計、データサイエンス","sk.langs":"言語・統計","sk.ds":"データサイエンス","sk.tools":"ツール","sk.languages":"言語","sk.soft":"ソフトスキル",
+      "pill.moore":"モーレ語（母語）","pill.bambara":"バンバラ語（母語）","pill.french":"フランス語（流暢）","pill.english":"英語（上級）",
+      "pill.comm":"コミュニケーション","pill.rigor":"緻密さ","pill.team":"チームワーク","pill.adapt":"適応力",
+      "pr.tag":"プロジェクト","pr.title":"プロジェクト","pr.sub":"私の作品の一部（コードはGitHubで公開）",
+      "p1.h":"Teranga Score — マイクロクレジット・スコアリング","p1.p":"UEMOAの協同組合向けの解釈可能なマイクロクレジット・スコアリングモデルと生存分析。CIF DigiCoop-WA+ ハッカソンにて制作。",
+      "p2.h":"時系列分析","p2.p":"時系列モデリング：トレンド・季節性の分析と予測。",
+      "p3.h":"データ可視化アプリ","p3.p":"SQLデータベースと連携したインタラクティブなデータ可視化アプリ（Dash）。",
+      "p4.h":"メディア動向分析","p4.p":"ウェブスクレイピングによるデータ収集とメディア動向の分析。",
+      "p5.h":"商品の自動分類","p5.p":"説明文に基づく消費財の自動分類。",
+      "p6.h":"インタラクティブ・ダッシュボード","p6.p":"主要指標の監視・分析のためのインタラクティブ・ダッシュボード。",
+      "tag.survival":"生存分析","tag.ts":"時系列","tag.forecast":"予測","tag.scrap":"ウェブスクレイピング",
+      "ct.tag":"お問い合わせ","ct.title":"一緒に働きましょう","ct.sub":"お気軽にご連絡ください","ct.loc":"所在地","ct.loc_v":"セネガル、ダカール",
+      "ph.name":"お名前","ph.email":"メールアドレス","ph.msg":"メッセージ",
+      "ft.tag":"統計アナリスト兼データサイエンティスト。データの価値創出に情熱を注いでいます。","ft.rights":"© 2026 Gilbert OUMSAORE. All rights reserved.",
+      "typed":["統計アナリスト","データサイエンティスト","ENSAEピエール・ンディアイ卒業"]
+    }
+  };
+
+  var el=document.getElementById('typed');
+  var phrases=[],pi=0,ci=0,del=false,typedTimer=null;
   function type(){
+    if(!phrases.length){return;}
     var p=phrases[pi];
     el.textContent=del?p.substring(0,ci--):p.substring(0,ci++);
-    if(!del&&ci===p.length+1){del=true;setTimeout(type,1400);return;}
+    if(!del&&ci===p.length+1){del=true;typedTimer=setTimeout(type,1400);return;}
     if(del&&ci===0){del=false;pi=(pi+1)%phrases.length;}
-    setTimeout(type,del?45:90);
+    typedTimer=setTimeout(type,del?45:90);
   }
-  type();
+  function applyLang(lang){
+    var t=I18N[lang]||I18N.en;
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(n){var k=n.getAttribute('data-i18n');if(t[k]!=null){n.textContent=t[k];}});
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(n){var k=n.getAttribute('data-i18n-ph');if(t[k]!=null){n.setAttribute('placeholder',t[k]);}});
+    document.querySelectorAll('.lang-switch button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});
+    phrases=t["typed"]||[];pi=0;ci=0;del=false;if(typedTimer){clearTimeout(typedTimer);}type();
+    try{localStorage.setItem('lang',lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-lang'));});
+  });
+  document.getElementById('burger').addEventListener('click',function(){document.getElementById('menu').classList.toggle('open');});
+  document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');});});
+
+  var saved=null; try{saved=localStorage.getItem('lang');}catch(e){}
+  applyLang(saved||'en');
+
   function sendMail(e){
     e.preventDefault();
     var n=document.getElementById('f-name').value;
     var m=document.getElementById('f-mail').value;
     var msg=document.getElementById('f-msg').value;
-    window.location.href="mailto:oumsaoregilbert@gmail.com?subject=Contact portfolio - "+encodeURIComponent(n)+"&body="+encodeURIComponent(msg+"\n\n"+m);
+    window.location.href="mailto:oumsaoregilbert@gmail.com?subject=Portfolio contact - "+encodeURIComponent(n)+"&body="+encodeURIComponent(msg+"\n\n"+m);
     return false;
   }
 </script>
